@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Supreme Restock Monitor
 // @namespace    https://majorcraft.xyz
-// @version      1.1
+// @version      1.2
 // @description  try to take over the world!
 // @author       aabbccsmith
 // @match        https://www.supremenewyork.com/shop/*/*/*
@@ -10,7 +10,7 @@
 // ==/UserScript==
 (function() {
     'use strict';
-    var discordWebhookUrl = "YOUR WEBHOOK HERE";
+    var discordWebhookUrl = "YOUR DISCORD WEBHOOK URL";
     var isSoldOut = function(el) {
         return (document.querySelector(".sold-out")) ? true : false;
     }
@@ -23,7 +23,7 @@
     //This script sends a discord notification whenever an item on supremenewyork.com restocks. The tab must be open for this script to work
     if(!isSoldOut(document.getElementById("add-remove-buttons"))) {
         $.ajax({
-            data: JSON.stringify({"content":window.location + " has just restocked!"}),
+            data: JSON.stringify({"content":$(".protect:first").text() + " in " + $(".protect:last").text() + " has just restocked! Be quick! " + window.location}),
             type: "post",
             xhrFields: { withCredentials: true },
             dataType: "json",
