@@ -18,7 +18,7 @@
     if (window.sessionStorage.reload != "loaded") {
 
         window.sessionStorage.reload = "loaded";
-        alert("This script will constantly run, and not allow any bots or other extensions to function!");
+        alert("This script will constantly run, and not allow any bots or other extensions to properly function!");
     }
     //This script sends a discord notification whenever an item on supremenewyork.com restocks. The tab must be open for this script to work
     if(!isSoldOut(document.getElementById("add-remove-buttons"))) {
